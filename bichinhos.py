@@ -1,0 +1,1 @@
+from tamagoshi.py  
