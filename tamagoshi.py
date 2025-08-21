@@ -9,37 +9,35 @@ class Tamagoshi:
     def alimentar(self, quantidade):
         if (quantidade >= 0) and (quantidade <= 100):
             self.fome -= self.fome * (quantidade / 100)
+            self.fome = max(0, self.fome) # para não ficar negativo
 
     def brincar(self, quantidade):
         if (quantidade >= 0) and (quantidade <= 100):
             self.tedio -= self.tedio * (quantidade / 100)
+            self.tedio = max(0, self.tedio) # para não ficar negativo
 
     def getHumor(self):
         return 100 - ((self.fome + self.tedio) / 2 )
     
     def vida(self):
         if ((self.fome > 50 and self.fome <= 60)) or ((self.tedio > 50 and self.tedio <= 60)):
-            self.saude -= - 10
+            self.saude -= 10
 
         elif ((self.fome > 60 and self.fome <= 80)) or ((self.tedio > 60 and self.tedio <= 80)):
-            self.saude -= - 30
+            self.saude -= 30
 
         elif ((self.fome > 80 and self.fome <= 90)) or ((self.tedio > 80 and self.tedio <= 90)):
-            self.saude -= - 50
+            self.saude -= 50
 
         elif (self.fome > 90 ) or (self.tedio > 90 ):
             print("Estou morrendo... AAAAAAAAAAAAHH")
 
         elif (self.fome > 99 ) or (self.tedio > 99 ):
-            print("Seu bichinho morreu T_T")
+            print("Seu bichinho morreu X_X")
 
     def tempoPassando(self):
         self.vida()
         self.idade += 0.2
-        self.tedio += 2.5
-        self.fome += 5
+        self.tedio = min(100, self.tedio + 2.5) # Para que o tedio não passe de 100
+        self.fome = min(100, self.fome + 5) # Para que a fome não passe de 100 tbm
 
-class Fadas(Tamagoshi):
-    def __init__(self, nome, voar, pozinho,):
-
-        super().__init__(nome)
