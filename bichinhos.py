@@ -1,4 +1,5 @@
 from tamagoshi import Tamagoshi
+from teste import musica_filme
 
 class Fada(Tamagoshi):
     def __init__(self, nome, pozinho = 50, energia_voar = 50):
@@ -9,33 +10,35 @@ class Fada(Tamagoshi):
     def recarregar_pozinho_magico(self):  
         if self.pozinho < 100:
             print(f"{self.nome} espalhou brilho mágico e recarregou seu pozinho encantado!")
-            self.pozinho = min(100, self.pozinho + 20)
+            self.pozinho += 30
         else:
             print(f"O pozinho mágico de {self.nome} já está transbordando de magia!")
 
     def voar(self):
         if self.pozinho >= 10:
             print(f"{self.nome} bateu suas asas delicadas e saiu voando pelo céu estrelado!")
-            self.pozinho = max(0, self.pozinho - 10)
-            self.tedio = min(100, self.tedio - 20)
-            self.saude = min(100, self.saude + 20)
+            self.pozinho -= 10
+            self.tedio -= 20
+            self.saude += 5
         else: 
             print (f"{self.nome} tentou voar, mas seu pozinho mágico está fraco demais...")
 
     def fazer_travessuras(self):
         if self.pozinho >=10:
             print(f"{self.nome} pregou uma travessura brilhante e divertida, espalhando risadinhas pela floresta!")
-            self.pozinho = max(0, self.pozinho - 10)
-            self.energia_voar = max(0, self.energia_voar - 15)
-            self.tedio = max(0, self.tedio - 25)
+            self.pozinho -= 20
+            self.energia_voar -= 25
+            self.tedio -= 25
         else:
             print(f"{self.nome} queria aprontar, mas sem pozinho mágico as travessuras não funcionam...")
 
     def banho_de_lunar(self):
         print(f"{self.nome} dançou sob a luz da lua e tomou um banho de luar prateado... agora está revigorada!!")
-        self.energia_voar = min(100, self.energia_voar + 50)
-        self.saude = min(100, self.saude + 20)
-        self.fome = min(100, self.fome + 15)
+        #if self.energia_voar <= 100:
+
+        self.energia_voar += 50
+        self.saude += 20
+        self.fome += 15
 
 #########################################################################################################################################
 
@@ -56,8 +59,9 @@ class Sereia(Tamagoshi):
         else:
             print(f"{self.nome} está cansada e precisa descansar antes de nadar novamente... ")
 
-    def cantar_para_os_peixes(self):
+    def canto_sereia(self):
         if self.canto_magico >= 10:
+            musica_filme()
             print(f"{self.nome} cantou uma melodia encantada e todos os peixinhos dançaram ao seu redor!")
             self.canto_magico = max(0, self.canto_magico - 15)
             self.tedio = max(0, self.tedio - 25)
@@ -130,5 +134,3 @@ class PrincesaArcoIris(Tamagoshi):
         self.saude = min(100, self.saude + 25)
         self.tedio = min(100, self.tedio + 5)
         self.fome = max(0, self.fome - 15)
-
-
