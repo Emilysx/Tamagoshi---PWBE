@@ -1,6 +1,6 @@
 from tamagoshi import Tamagoshi
 
-class Fadas(Tamagoshi):
+class Fada(Tamagoshi):
     def __init__(self, nome, pozinho = 50, energia_voar = 50):
         super().__init__(nome)
         self.pozinho = pozinho # PEDIR AJUDA PARA MARY
@@ -39,7 +39,7 @@ class Fadas(Tamagoshi):
 
 #########################################################################################################################################
 
-class Sereias(Tamagoshi):
+class Sereia(Tamagoshi):
     def __init__(self, nome, energia_nadando=50, canto_magico=50, alegria=50):
         super().__init__(nome)
         self.energia_nadando = energia_nadando  
