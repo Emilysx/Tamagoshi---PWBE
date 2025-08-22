@@ -11,7 +11,7 @@ class Fadas(Tamagoshi):
             print(f"{self.nome} espalhou brilho mágico e recarregou seu pozinho encantado!")
             self.pozinho = min(100, self.pozinho + 20)
         else:
-            print("O pozinho mágico de {self.nome} já está transbordando de magia!")
+            print(f"O pozinho mágico de {self.nome} já está transbordando de magia!")
 
     def voar(self):
         if self.pozinho >= 10:
@@ -40,7 +40,6 @@ class Fadas(Tamagoshi):
 #########################################################################################################################################
 
 class Sereias(Tamagoshi):
-    class Sereias(Tamagoshi):
     def __init__(self, nome, energia_nadando=50, canto_magico=50, alegria=50):
         super().__init__(nome)
         self.energia_nadando = energia_nadando  
@@ -88,5 +87,48 @@ class Sereias(Tamagoshi):
         self.tedio = min(100, self.tedio + 5)
         self.alegria = min(100, self.alegria + 10)
 
+
+#########################################################################################################################################  
+
+class PrincesaArcoIris(Tamagoshi):
+    def __init__(self, nome, energia_magica=50):
+        super().__init__(nome)  
+        self.energia_magica = energia_magica  
+
+    def criar_arco_iris(self):
+        if self.energia_magica >= 10:
+            print(f"{self.nome} levantou as mãos e criou um arco-íris radiante que iluminou tudo!")
+            self.energia_magica = max(0, self.energia_magica - 15)
+            self.tedio = max(0, self.tedio - 20)
+            self.fome = max(0, self.fome - 10)
+            self.saude = min(100, self.saude + 15)
+        else:
+            print(f"{self.nome} está sem energia mágica suficiente para criar o arco-íris...")
+
+    def dançar_nas_cores(self):
+        if self.energia_magica >= 5:
+            print(f"{self.nome} dançou entre as cores do arco-íris, espalhando magia pelo ar! ")
+            self.energia_magica = max(0, self.energia_magica - 10)
+            self.tedio = max(0, self.tedio - 25)
+            self.fome = max(0, self.fome - 5)
+            self.saude = min(100, self.saude + 10)
+        else:
+            print(f"{self.nome} está cansada e precisa recuperar energia mágica antes de dançar.")
+
+    def espalhar_po_magico(self):
+        if self.energia_magica >= 10:
+            print(f"{self.nome} espalhou pó mágico colorido, deixando tudo mais brilhante e cheio de vida! ")
+            self.energia_magica = max(0, self.energia_magica - 15)
+            self.tedio = max(0, self.tedio - 20)
+            self.saude = min(100, self.saude + 15)
+        else:
+            print(f"{self.nome} não tem energia mágica suficiente para espalhar pó colorido...")
+
+    def descansar_no_arco_iris(self):
+        print(f"{self.nome} se deitou sobre um arco-íris suave e deixou sua saúde se renovar...")
+        self.energia_magica = min(100, self.energia_magica + 50)
+        self.saude = min(100, self.saude + 25)
+        self.tedio = min(100, self.tedio + 5)
+        self.fome = max(0, self.fome - 15)
 
 
